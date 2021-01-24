@@ -1,0 +1,9 @@
+.input {
+  width: 50%;
+  margin-bottom: 2%;
+  display: flex;
+}
+
+.button {
+  margin-left: 2%;
+}

@@ -3,7 +3,37 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --progress"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.16.0",
+    "webpack-cli": "^4.4.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.3.7",
+    "@babel/plugin-external-helpers": "^7.12.1",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "antd": "^4.10.3",
+    "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^5.0.1",
+    "graphql": "^15.4.0",
+    "html-webpack-plugin": "^4.5.1",
+    "mini-css-extract-plugin": "^1.3.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "source-map-loader": "^2.0.0",
+    "style-loader": "^2.0.0",
+    "typescript": "^4.1.3"
+  }
 }

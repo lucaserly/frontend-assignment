@@ -3,7 +3,7 @@ import * as O from "fp-ts/lib/Option";
 import { pipe } from "fp-ts/lib/pipeable";
 import { Connection, Edge, PageInfo } from "./types";
 
-export function toConnection<A extends { id: string }>(
+export function toConnection<A extends { id: string; }> (
   as: A[],
   size: number
 ): Connection<A> {
@@ -25,6 +25,6 @@ export function toConnection<A extends { id: string }>(
 /**
  * Data-last version of Array.prototype.slice
  */
-export function slice<A>(start?: number, end?: number): (a: A[]) => A[] {
+export function slice<A> (start?: number, end?: number): (a: A[]) => A[] {
   return as => as.slice(start, end);
 }
