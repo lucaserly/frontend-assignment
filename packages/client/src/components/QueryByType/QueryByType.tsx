@@ -15,7 +15,7 @@ const QueryByType = (): JSX.Element => {
   const queryByType = queryService.GET_POKEMONS_BY_TYPE(type, limit);
   const { loading, error, data } = useQuery(queryByType);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p></p>;
   if (error) return <p>Error :(</p>;
 
   const onSearch = (value: string): void => {
@@ -36,7 +36,9 @@ const QueryByType = (): JSX.Element => {
     <div className="bytype_container">
       <div className="search_bar">
         <InputBar onSearch={onSearch} placeholderText='search by type' onClick={onClick} />
-        {data.pokemonsByType.pageInfo.hasNextPage ? <Button type="primary" style={buttonStyle} onClick={loadMoreResults}>Load More Results</Button> : <></>}
+        {data.pokemonsByType.pageInfo.hasNextPage ?
+          <Button type="primary" style={buttonStyle} onClick={loadMoreResults}>Load More Results</Button> :
+          <></>}
       </div>
       {type === '' ?
         <></> :

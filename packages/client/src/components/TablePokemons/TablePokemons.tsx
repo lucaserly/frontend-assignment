@@ -14,6 +14,7 @@ interface Data {
     hasNextPage: boolean,
   };
 }
+
 const columns: ColumnsType<Pokemon> = [
   {
     title: 'NAME',

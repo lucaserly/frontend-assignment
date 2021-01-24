@@ -14,7 +14,7 @@ const QueryByName = (): JSX.Element => {
   const queryByName = queryService.GET_POKEMON_BY_NAME(name, limit);
   const { loading, error, data } = useQuery(queryByName);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p></p>;
   if (error) return <p>Error :(</p>;
 
   const onSearch = (value: string): void => {
@@ -40,4 +40,3 @@ const QueryByName = (): JSX.Element => {
 };
 
 export default QueryByName;
-;

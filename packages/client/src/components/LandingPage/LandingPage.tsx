@@ -12,7 +12,7 @@ const LandingPage = (): JSX.Element => {
   const queryByName = queryService.GET_POKEMON_BY_NAME('', 1000);
   const { loading, error, data } = useQuery(queryByName);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p></p>;
   if (error) return <p>Error :(</p>;
 
   const showAllPokemons = (): void => {
