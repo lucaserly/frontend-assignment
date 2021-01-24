@@ -16,6 +16,10 @@ interface Data {
   };
 }
 
+interface LoadMoreResults {
+  (): void;
+}
+
 const columns: ColumnsType<Pokemon> = [
   {
     title: 'name',
@@ -46,12 +50,12 @@ const columns: ColumnsType<Pokemon> = [
   }
 ];
 
-const TablePokemons = (props: { pokemons: Data; }): JSX.Element => {
-  const { pokemons } = props;
+const TablePokemons = (props: { pokemons: Data; loadMoreResults: LoadMoreResults; }): JSX.Element => {
+  const { pokemons, loadMoreResults } = props;
   const data: Pokemon[] = pokemons.edges.map((pokemon: Node) => pokemon.node);
   return (
     <div className="table_container">
-      {pokemons.pageInfo.hasNextPage ? <Button type="primary" style={buttonStyle}>Load More Results</Button> : <></>}
+      {/* {pokemons.pageInfo.hasNextPage ? <Button type="primary" style={buttonStyle} onClick={loadMoreResults}>Load More Results</Button> : <></>} */}
       <Table columns={columns} dataSource={data} rowKey={pokemon => pokemon.id} />
     </div>
   );

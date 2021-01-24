@@ -8,7 +8,9 @@ import helperFuncs from '../../utils/helperFuncs';
 
 const QueryByName = (): JSX.Element => {
   const [name, setName] = useState('');
-  const queryByName = queryService.GET_POKEMON_BY_NAME(name, 1000);
+  const [limit, setLimit] = useState(5);
+
+  const queryByName = queryService.GET_POKEMON_BY_NAME(name, limit);
   const { loading, error, data } = useQuery(queryByName);
 
   if (loading) return <p>Loading...</p>;
@@ -21,14 +23,20 @@ const QueryByName = (): JSX.Element => {
 
   const onClick = (): void => {
     setName('');
+    setLimit(5);
+  };
+
+  const loadMoreResults = () => {
+    setLimit((prevLimit) => prevLimit += 5);
   };
 
   return (
     <>
+      {console.log('data-->', data)}
       <InputBar onSearch={onSearch} placeholderText='search by name' onClick={onClick} />
       {name === '' ?
         <></> :
-        <TablePokemons pokemons={data.pokemons.edges} />}
+        <TablePokemons pokemons={data.pokemons} loadMoreResults={loadMoreResults} />}
     </>
   );
 };
