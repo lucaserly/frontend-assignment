@@ -1,5 +1,25 @@
 .landing_page_container {
-  margin-left: 1%
+  margin-left: 1%;
+}
+
+.all_pokemons_container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.title_container {
+  display: flex;
+  justify-content: center;
+
+}
+
+.title {
+  padding-left: 2%;
+  margin-top: 1%;
+  margin-bottom: 10%;
+  font-weight: 600;
+  font-size: 2.6rem;
+  color: rgb(249, 76, 67);
 }
 
 

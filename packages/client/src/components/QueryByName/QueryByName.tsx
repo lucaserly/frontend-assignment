@@ -5,6 +5,7 @@ import InputBar from '../InputBar';
 import TablePokemons from '../TablePokemons';
 import 'antd/dist/antd.css';
 import helperFuncs from '../../utils/helperFuncs';
+import './QueryByName.css';
 
 const QueryByName = (): JSX.Element => {
   const [name, setName] = useState('');
@@ -26,18 +27,15 @@ const QueryByName = (): JSX.Element => {
     setLimit(5);
   };
 
-  const loadMoreResults = () => {
-    setLimit((prevLimit) => prevLimit += 5);
-  };
-
   return (
-    <>
-      {console.log('data-->', data)}
-      <InputBar onSearch={onSearch} placeholderText='search by name' onClick={onClick} />
+    <div className="byname_container">
+      <div className="search_bar">
+        <InputBar onSearch={onSearch} placeholderText='search by name' onClick={onClick} />
+      </div>
       {name === '' ?
         <></> :
-        <TablePokemons pokemons={data.pokemons} loadMoreResults={loadMoreResults} />}
-    </>
+        <TablePokemons pokemons={data.pokemons} />}
+    </div>
   );
 };
 

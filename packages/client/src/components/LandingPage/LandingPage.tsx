@@ -7,7 +7,7 @@ import { useQuery } from '@apollo/client';
 import queryService from '../../services/queryService';
 import TablePokemons from '../TablePokemons';
 
-export const LandingPage = (): JSX.Element => {
+const LandingPage = (): JSX.Element => {
   const [flag, setFlag] = useState(false);
   const queryByName = queryService.GET_POKEMON_BY_NAME('', 1000);
   const { loading, error, data } = useQuery(queryByName);
@@ -23,8 +23,13 @@ export const LandingPage = (): JSX.Element => {
 
   return (
     <div className="landing_page_container">
-      <Button type="primary" style={buttonStyle} onClick={showAllPokemons}>{buttonTitle}</Button>
-      {flag ? <TablePokemons pokemons={data.pokemons} loadMoreResults={() => { }} /> : <></>}
+      <div className="title_container">
+        <div className="title">#pokemon browser</div>
+      </div>
+      <div className="all_pokemons_container">
+        <Button type="primary" style={buttonStyle} onClick={showAllPokemons}>{buttonTitle}</Button>
+      </div>
+      {flag ? <TablePokemons pokemons={data.pokemons} /> : <></>}
       <QueryByType />
       <QueryByName />
     </div>
@@ -33,5 +38,10 @@ export const LandingPage = (): JSX.Element => {
 
 const buttonStyle = {
   'marginBottom': '2%',
-  'marginLeft': '2%'
+  'marginLeft': '0.5%',
+  'backgroundColor': 'rgb(249, 76, 67)',
+  'font-weight': 'bold',
+  'border': 'none',
 };
+
+export default LandingPage;

@@ -1,5 +1,6 @@
 import React from 'react';
-import { LandingPage } from './components/LandingPage/LandingPage';
+import LandingPage from './components/LandingPage/';
+import TopNavBar from './components/TopNavBar';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import './App.css';
 
@@ -11,9 +12,7 @@ const client = new ApolloClient({
 export const App = (): JSX.Element => {
   return (
     <ApolloProvider client={client}>
-      <h3 className="title">
-        Hello From APP
-      </h3>
+      <TopNavBar />
       <LandingPage />
     </ApolloProvider>
   );

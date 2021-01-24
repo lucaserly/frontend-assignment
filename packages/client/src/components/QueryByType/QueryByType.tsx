@@ -35,19 +35,20 @@ const QueryByType = (): JSX.Element => {
   return (
     <div className="bytype_container">
       <div className="search_bar">
-        <InputBar placeholderText='search by type' onSearch={onSearch} onClick={onClick} />
+        <InputBar onSearch={onSearch} placeholderText='search by type' onClick={onClick} />
         {data.pokemonsByType.pageInfo.hasNextPage ? <Button type="primary" style={buttonStyle} onClick={loadMoreResults}>Load More Results</Button> : <></>}
       </div>
       {type === '' ?
         <></> :
-        <TablePokemons pokemons={data.pokemonsByType} loadMoreResults={loadMoreResults} />}
+        <TablePokemons pokemons={data.pokemonsByType} />}
     </div>
   );
 };
 
 const buttonStyle = {
-  width: '20%',
-  marginLeft: '1%'
+  'backgroundColor': 'rgb(249, 76, 67)',
+  'font-weight': 'bold',
+  'border': 'none',
 };
 
 export default QueryByType;

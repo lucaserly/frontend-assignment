@@ -3,7 +3,6 @@ import './TablePokemons.css';
 import { Pokemon } from '../../services/queryService/queryServiceInterfaces';
 import { Table, Tag } from 'antd';
 import { ColumnsType } from 'antd/es/table';
-import { Button } from 'antd';
 
 interface Node {
   node: Pokemon;
@@ -15,20 +14,15 @@ interface Data {
     hasNextPage: boolean,
   };
 }
-
-interface LoadMoreResults {
-  (): void;
-}
-
 const columns: ColumnsType<Pokemon> = [
   {
-    title: 'name',
+    title: 'NAME',
     key: 'name',
     dataIndex: 'name',
-    render: (text: string) => <a>{text}</a>
+    render: (text: string) => <a style={{ color: 'red' }}>{text}</a>
   },
   {
-    title: 'types',
+    title: 'TYPES',
     key: 'types',
     dataIndex: 'types',
     render: (types: string[]) => (
@@ -44,25 +38,20 @@ const columns: ColumnsType<Pokemon> = [
     )
   },
   {
-    title: 'classification',
+    title: 'CLASS',
     key: 'classification',
     dataIndex: 'classification',
   }
 ];
 
-const TablePokemons = (props: { pokemons: Data; loadMoreResults: LoadMoreResults; }): JSX.Element => {
-  const { pokemons, loadMoreResults } = props;
+const TablePokemons = (props: { pokemons: Data; }): JSX.Element => {
+  const { pokemons } = props;
   const data: Pokemon[] = pokemons.edges.map((pokemon: Node) => pokemon.node);
   return (
     <div className="table_container">
-      {/* {pokemons.pageInfo.hasNextPage ? <Button type="primary" style={buttonStyle} onClick={loadMoreResults}>Load More Results</Button> : <></>} */}
       <Table columns={columns} dataSource={data} rowKey={pokemon => pokemon.id} />
     </div>
   );
-};
-
-const buttonStyle = {
-  width: "20%"
 };
 
 export default TablePokemons;

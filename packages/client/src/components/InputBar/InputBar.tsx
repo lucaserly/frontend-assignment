@@ -20,9 +20,15 @@ const InputBar = (props: { onSearch: OnSearch; placeholderText: string; onClick:
       <Space direction="vertical">
         <Search placeholder={placeholderText} onSearch={onSearch} enterButton />
       </Space>
-      <Button type="primary" className="button" onClick={onClick}>Clear Search</Button>
+      <Button type="primary" className="button" onClick={onClick} style={buttonStyle}>Clear Search</Button>
     </div>
   );
+};
+
+const buttonStyle = {
+  'backgroundColor': 'rgb(249, 76, 67)',
+  'font-weight': 'bold',
+  'border': 'none',
 };
 
 export default InputBar;
